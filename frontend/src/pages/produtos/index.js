@@ -43,11 +43,16 @@ const Produtos = () => {
             alert("O campo preço é obrigatório");
             return false;
         }
-        if (Number(produto.preco) < 0) {
-            alert("O preço não pode ser negativo");
+        if (!Number.isFinite(Number(produto.preco)) || Number(produto.preco) < 0) {
+            alert("O preço deve ser um número maior ou igual a zero");
             return false;
         }
         return true;
+    }
+
+    // impede digitar sinal de negativo (e notação científica) no campo de preço
+    function bloquearTeclasPreco(e) {
+        if (['-', '+', 'e', 'E'].includes(e.key)) e.preventDefault();
     }
 
     function handleChange(e) {
@@ -133,6 +138,7 @@ const Produtos = () => {
                     name="preco"
                     min="0"
                     step="0.01"
+                    onKeyDown={bloquearTeclasPreco}
                     value={produto.preco} />
 
                 <div className="input-group mb-3">

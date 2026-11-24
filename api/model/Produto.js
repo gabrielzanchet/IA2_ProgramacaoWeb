@@ -8,7 +8,13 @@ const Produto = db.define('Produto', {
     },
     preco: {
         type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
+        allowNull: false,
+        validate: {
+            min: {
+                args: [0],
+                msg: 'O preço não pode ser negativo'
+            }
+        }
     },
     imagem: {
         type: DataTypes.STRING,

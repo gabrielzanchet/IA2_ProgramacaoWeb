@@ -3,6 +3,8 @@ const cors = require('cors');
 const path = require('path');
 const conn = require('./db/conn.js');
 const produtoRoutes = require('./router/ProdutoRoutes.js');
+const carrinhoRoutes = require('./router/CarrinhoRoutes.js');
+const vendaRoutes = require('./router/VendaRoutes.js');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -14,6 +16,8 @@ app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/produto', produtoRoutes);
+app.use('/carrinho', carrinhoRoutes);
+app.use('/venda', vendaRoutes);
 
 // Rota inexistente
 app.use((req, res) => {
