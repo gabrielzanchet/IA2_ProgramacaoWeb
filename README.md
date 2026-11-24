@@ -76,6 +76,16 @@ npm start
 
 O front abre em `http://localhost:3000`. Para apontar para outra API, defina `REACT_APP_API_URL`.
 
+## Primeiro uso
+
+O banco começa vazio, então a loja aparece sem produtos. Para testar:
+
+1. Abra `http://localhost:3000/produtos`
+2. Cadastre alguns produtos (nome, preço e imagem `.jpeg` ou `.png`)
+3. Vá para `http://localhost:3000/home`
+4. Adicione produtos ao carrinho e clique em **Finalizar venda**
+5. Para ver as vendas registradas, acesse `http://localhost:5000/venda/getAll`
+
 ## Rotas do front
 
 | Rota | Descrição |
