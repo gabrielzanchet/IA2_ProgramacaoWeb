@@ -9,6 +9,10 @@ const Produto = db.define('Produto', {
     preco: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false
+    },
+    imagem: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 });
 
